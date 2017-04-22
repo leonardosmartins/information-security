@@ -1,5 +1,3 @@
-
-import Utils;
 import java.io.*;
 import java.util.Scanner;
 import java.lang.Math.*;
@@ -77,85 +75,59 @@ public class Vigenere {
 
     static String attack(Integer keyLength, byte[] textoCifradoByte, char letraFrequente) throws Exception {
 
-    	byte[] keys = new byte[keyLength];
-    		
+    	char[] keys = new char[keyLength];
+
     	for(int numberKey = 0; numberKey < keyLength; numberKey++){
     		float[] vetX = new float[26];
     		byte[] byteSelecionados = new byte[(textoCifradoByte.length+(keyLength-1))/keyLength];
     		byte[] byteXOR = new byte[byteSelecionados.length];
+    		float[] vetQ = new float[256];
 
     		for(int i = numberKey, k = 0; i < textoCifradoByte.length; i += keyLength, k++){
     			byteSelecionados[k] = textoCifradoByte[i];
     		}
 
-    		for(char c = 'a', int k = 0; c <= 'z'; c++, k++){
-    			for (int i = 0; i < byteSelecionados.length; i++){
+    		int z = 0;
+
+    		for(char c = 'a'; c <= 'z'; c++, z++){
+    			for(int i = 0; i < byteSelecionados.length; i++){
 	    			byteXOR[i] = xor(byteSelecionados[i], c);
 	    		}
-	    		for (int i = 0; i < byteXOR.length; i++){
-	    			vetX[k] += freq(byteXOR[i]) * qi;
+	    		for(int i = 0; i < byteXOR.length; i++){
+	    			vetQ[byteXOR[i] & 255]++;
+	    		}
+	    		for(int i = 0; i < vetQ.length; i++){
+	    			vetQ[i] /= byteXOR.length;
+	    		}
+	    		for(int i = 0; i < byteXOR.length; i++){
+	    			vetX[k] += Utils.freq(byteXOR[i]) * vetQ[byteXOR[i] & 255]; //BETERA MODIFICAR AQUI
 	    		}
     		}
-
-    		MAX(vetX) = k;
-    		keys[numberKey] = char(k);
-
-
-    		/*int maisFrequente = -1;
+	    		
+    		float maior = -1;
     		int iMaior = -1;
 
-    		for(int i = 0; i < caracteres.length; i++){
-    			if(caracteres[i] > maisFrequente){
-    				maisFrequente = caracteres[i];
-    				iMaior = i;
+    		for(int i = 0; i < vetX.length; i++){
+    			if(vetX[i] > maior){
+    				maior = vetX[i];
+    				iMaior = i;	
     			}
     		}
-*/
-    		//byte[] b = Util.hexStringToByteArray("61");
-    		//System.out.println("---");
-    		//System.out.println("iMaior=" + iMaior);
-    		// //System.out.println(bytes[iMaior]);
-    		//byte letraCifradaFrequente = (byte) iMaior;
 
-
-    		//System.out.println(b[0]);
-    		//System.out.println("---");
-    		
-    		//keys[numberKey] = xor(letraCifradaFrequente,letraFrequente);
-
-    		/*byte[] teste = new byte[1];
-    		teste[0] = keys[ex];
-    		String seila = Util.byteArrayToHexString(teste);
-    		String lele = tt(seila);
-    		keysCert[ex] = xor(betera, lele.charAt(0));
-    		System.out.println("keysCert=" + keysCert[ex]);
-    		*/
-    		//System.out.println("Keys = " + (char)keys[numberKey]);
-    	}
-
-
-    	//String keyCerta = Util.byteArrayToHexString(keys);
-
-    	////System.out.println(keyCerta);
+    		keys[numberKey] = Utils.intToChar(iMaior);
+		
+			////System.out.println(keyCerta);
 
     		
-    	return "ey";
-    }
+   		}
+    return "ey";
+	}
 
 
     public static byte xor(byte a, char b) throws Exception{
     	a ^= b;
     	return a;
     }
-
-    public static String tt(String hex) {
-    StringBuilder output = new StringBuilder();
-    for (int i = 0; i < hex.length(); i+=2) {
-        String str = hex.substring(i, i+2);
-        output.append((char)Integer.parseInt(str, 16));
-    }
-    return output.toString();
-}
 
 
     public static void main(String args[]) throws Exception {
