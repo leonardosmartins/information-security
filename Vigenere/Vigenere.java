@@ -1,4 +1,5 @@
 
+import Utils;
 import java.io.*;
 import java.util.Scanner;
 import java.lang.Math.*;
@@ -77,9 +78,9 @@ public class Vigenere {
     static String attack(Integer keyLength, byte[] textoCifradoByte, char letraFrequente) throws Exception {
 
     	byte[] keys = new byte[keyLength];
-    	float[] vetX = new float[26];
     		
     	for(int numberKey = 0; numberKey < keyLength; numberKey++){
+    		float[] vetX = new float[26];
     		byte[] byteSelecionados = new byte[(textoCifradoByte.length+(keyLength-1))/keyLength];
     		byte[] byteXOR = new byte[byteSelecionados.length];
 
