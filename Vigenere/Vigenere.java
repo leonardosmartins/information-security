@@ -37,15 +37,19 @@ public class Vigenere {
     	byte[] byteSelecionados;
     	
     	for (int i = 1; i < textoCifradoByte.length/2; i++){
-    		byteSelecionados = new byte[textoCifradoByte.length];
+    		byteSelecionados = new byte[(textoCifradoByte.length+(i-1))/i];
+    		//int tam = (textoCifradoByte.length+(i-1))/i;
     		for(int j = 0, k = 0; j < textoCifradoByte.length; j += i, k++){
     			byteSelecionados[k] = textoCifradoByte[j];	
     		}
 
     		float vetQ[] = new float[256];
     		
+    		//System.out.println("byteSelecionados.length: "+ byteSelecionados.length);
+
+
     		for(int j = 0; j < byteSelecionados.length; j++){
-    			if( (byteSelecionados[j]&255) != 0){
+    			if( (byteSelecionados[j] & 255) != 0){
     				vetQ[byteSelecionados[j] & 255] += 1 ;
        			}
     		}
@@ -59,8 +63,10 @@ public class Vigenere {
     			vetS[i] += (vetQ[j] * vetQ[j]);
     		}
 
-    		//System.out.println("Tamanho chave: "+i+" => S = "+vetS[i]);
-    		System.out.println(vetS[i]);
+    	}
+    		
+    	for(int i = 0; i<vetS.length; i++){
+    		//System.out.println(vetS[i]);
     	}
 
     	String a = attack(keyLengthProvavel, textoCifradoByte, letraFrequente);
@@ -71,15 +77,30 @@ public class Vigenere {
     static String attack(Integer keyLength, byte[] textoCifradoByte, char letraFrequente) throws Exception {
 
     	byte[] keys = new byte[keyLength];
+    	float[] vetX = new float[26];
     		
     	for(int numberKey = 0; numberKey < keyLength; numberKey++){
-    		int caracteres[] = new int[256];
+    		byte[] byteSelecionados = new byte[(textoCifradoByte.length+(keyLength-1))/keyLength];
+    		byte[] byteXOR = new byte[byteSelecionados.length];
 
-    		for(int i = numberKey; i < textoCifradoByte.length; i += keyLength){
-    			caracteres[textoCifradoByte[i]&255]++;
+    		for(int i = numberKey, k = 0; i < textoCifradoByte.length; i += keyLength, k++){
+    			byteSelecionados[k] = textoCifradoByte[i];
     		}
 
-    		int maisFrequente = -1;
+    		for(char c = 'a', int k = 0; c <= 'z'; c++, k++){
+    			for (int i = 0; i < byteSelecionados.length; i++){
+	    			byteXOR[i] = xor(byteSelecionados[i], c);
+	    		}
+	    		for (int i = 0; i < byteXOR.length; i++){
+	    			vetX[k] += freq(byteXOR[i]) * qi;
+	    		}
+    		}
+
+    		MAX(vetX) = k;
+    		keys[numberKey] = char(k);
+
+
+    		/*int maisFrequente = -1;
     		int iMaior = -1;
 
     		for(int i = 0; i < caracteres.length; i++){
@@ -88,18 +109,18 @@ public class Vigenere {
     				iMaior = i;
     			}
     		}
-
+*/
     		//byte[] b = Util.hexStringToByteArray("61");
     		//System.out.println("---");
     		//System.out.println("iMaior=" + iMaior);
     		// //System.out.println(bytes[iMaior]);
-    		byte letraCifradaFrequente = (byte) iMaior;
+    		//byte letraCifradaFrequente = (byte) iMaior;
 
 
     		//System.out.println(b[0]);
     		//System.out.println("---");
     		
-    		keys[numberKey] = xor(letraCifradaFrequente,letraFrequente);
+    		//keys[numberKey] = xor(letraCifradaFrequente,letraFrequente);
 
     		/*byte[] teste = new byte[1];
     		teste[0] = keys[ex];
@@ -112,7 +133,7 @@ public class Vigenere {
     	}
 
 
-    	String keyCerta = Util.byteArrayToHexString(keys);
+    	//String keyCerta = Util.byteArrayToHexString(keys);
 
     	////System.out.println(keyCerta);
 
