@@ -1,0 +1,5 @@
+A cifra de Vigenere e um metodo de criptografia que usa uma serie de diferentes cifras de Cesar baseadas em letras de uma senha. Trata-se de uma versao simplificada de uma mais geral cifra de substituicao polialfabetica, inventada por Leone Battista Alberti cerca de 1465.
+
+A invencao da cifra de Vigenere e erradamente atribuida a Blaise de Vigenere; encontra-se originalmente descrita por Giovan Batista Belaso no seu livro datado de 1553 com o titulo La cifra del. Sig. Giovan Batista Belaso.
+
+Esta cifra e muito conhecida porque e facil de perceber e de por em pratica, parecendo, a quem tem pouca pratica, que e inquebravel (indecifravel). Consequentemente, muitos programadores implementaram esquemas de criptografia nas suas aplicacoes que sao no essencial cifras de Vigenere, e que sao facilmente quebradas por qualquer criptanalista.
