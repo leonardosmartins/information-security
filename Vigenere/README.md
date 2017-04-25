@@ -2,7 +2,7 @@
 
 ## Cifra de Vigenere
 
-##Developers:
+## Developers:
 	- Angelo Travizan Neto
 	- Henrique Araujo Lima
 	- Leonardo da Silva Martins
