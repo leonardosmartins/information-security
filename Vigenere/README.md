@@ -2,6 +2,10 @@
 
 ## Cifra de Vigenere
 
+##Developers:
+	- Angelo Travizan Neto
+	- Henrique Araujo Lima
+	- Leonardo da Silva Martins
 
 Os codigos se encontram dentro da pasta "codigos".
 
