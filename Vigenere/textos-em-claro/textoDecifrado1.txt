@@ -1,0 +1,11 @@
+Claude Elwood Shannon foi um matematico, engenheiro eletronico e criptografo estadunidense, conhecido como o pai da teoria da informacao.
+
+De 1932 a 1936, estudou matematica e engenharia eletrica na Universidade de Michigan.
+
+Em 1948, publicou o importante artigo cientifico intitulado A Mathematical Theory of Communication enfocando o problema de qual e a melhor forma para codificar a informacao que um emissor queira transmitir para um receptor. Neste artigo, trabalhando inclusive com as ferramentas teoricas utilizadas por Norbert Wiener, Claude Shannon propos com sucesso uma medida de informacao propria para medir incerteza sobre espacos desordenados. Essa foi mais tarde complementada por Ronald Fisher, que criou uma medida alternativa de informacao apropriada para medir incerteza sobre espacos ordenados.
+
+Em 1949, em co-autoria com o tambem matematico estadunidense Warren Weaver, publicou o livro Teoria Matematica da Comunicacao, contendo reimpressoes do seu artigo cientifico de 1948 de forma acessivel tambem a nao-especialistas, isto popularizou seus conceitos.
+
+Entre 1946 e 1953, Claude Shannon integrou temporariamente o grupo reunido sob o nome de Macy Conferences, contribuindo para a consolidacao da teoria cibernetica junto com outros cientistas renomados: Arturo Rosenblueth, Gregory Bateson, Heinz von Foerster, John von Neumann, Julian Bigelow, Kurt Lewin, Lawrence Kubie, Lawrence K. Frank, Leonard Jimmie Savage, Margaret Mead, Molly Harrower, Norbert Wiener, Paul Lazarsfeld, Ralph Waldo Gerard , Walter Pitts, Warren McCulloch e William Ross Ashby; alem de Erik Erikson e Max Delbruck.
+
+Shannon e famoso por ter fundado a teoria da informacao com um artigo publicado em 1948. Mas a ele tambem e creditado como fundador tanto do computador digital como do projeto de circuito digital em 1937, quando, com 21 anos de idade e aluno de mestrado no MIT, ele escreveu uma tese demonstrando que uma aplicacao eletrica utilizando algebra booleana poderia resolver qualquer problema de logica. Tem sido dito que esta foi a tese de mestrado de mais importancia de todos os tempos.[5] Shannon contribui para o campo da criptoanalise durante a segunda guerra mundial.
