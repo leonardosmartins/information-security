@@ -15,6 +15,8 @@ elif pontuacao == ".":
   space = "00101110"
 elif pontuacao == ":":
   space = "01011000"
+else:
+  space = pontuacao
 
 xor = ""
 
@@ -25,4 +27,6 @@ for i in range(8):
   else:
     xor = xor[0:] + '1'
 
-print "'" + str(unichr(int(xor,2))) + "'"
+print xor
+#print "'" + str(unichr(int(xor,2))) + "'"
+
