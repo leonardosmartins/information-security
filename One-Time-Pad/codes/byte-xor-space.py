@@ -1,8 +1,8 @@
 import sys
 
 
-entrada = sys.argv[1]
-pontuacao = sys.argv[2]
+entrada = sys.argv[2]
+pontuacao = sys.argv[1]
 
 space = ""
 
