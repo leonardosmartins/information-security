@@ -1,5 +1,5 @@
 import string
-arqkey = open("../input/msg/keys/key.txt" , "r")
+arqkey = open("../input/msg/keys/key2.txt" , "r")
 key = arqkey.read()
 dec = ""
 ler = range(7)
@@ -7,7 +7,7 @@ escrever = range(7)
 
 for i in range(7):
   ler[i] = open("../input/msg/cifradas-bin-spaces/c" +str(i+1) + ".txt" , "r")
-  escrever[i] = open("../input/msg/decifradas-bin-spaces/c" +str(i+1) + ".txt" , "w")
+  #escrever[i] = open("../input/msg/decifradas-bin-spaces/c" +str(i+1) + ".txt" , "w")
   lido = ler[i].read()
   dec=""
   for j in range(len(key)):
@@ -28,4 +28,4 @@ for i in range(7):
   #escrever[i].write(dec)       
   print (teste)
   ler[i].close()
-  escrever[i].close()
+  #escrever[i].close()
